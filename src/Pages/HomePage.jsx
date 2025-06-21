@@ -41,7 +41,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen  text-white overflow-x-hidden bg-gradient-to-br from-blue-100 to-blue-200">
+    <div className="relative min-h-screen  text-white overflow-x-hidden bg-gradient-to-br from-purple-200 via-purple-300 to-purple-400">
       <div className="relative  ">
         {/* Hero (No scroll animation) */}
         <div ref={(el) => (sectionRefs.current[0] = el)}>

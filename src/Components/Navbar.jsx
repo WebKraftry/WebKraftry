@@ -103,7 +103,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="text-2xl font-bold overflow-hidden">
           <Link to="/" onClick={closeMobileMenu}> {/* Close mobile menu on logo click */}
-            <img src={logo} alt="Logo" className="h-[60px] w-[180px] rounded-xl bg-purple-800 bg-white" />
+            <img src={logo} alt="Logo" className="h-[60px] w-[180px] rounded-xl  " />
           </Link>
         </div>
 
