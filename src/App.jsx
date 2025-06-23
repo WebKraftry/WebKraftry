@@ -32,13 +32,13 @@ const App = () => {
     // In a real application, you'd replace this with actual data fetching logic.
     const timer = setTimeout(() => {
       setLoading(false); // Hide the loader after a simulated delay
-    }, 3000); // Adjust this delay based on your typical load time
+    }, 500); // Adjust this delay based on your typical load time
 
     return () => clearTimeout(timer); // Cleanup the timer
   }, []);
   return (
     <div className="">
-       {loading && <SiteLoader />} {/* Conditionally render the loader */}
+       {loading && <SiteLoader />} Conditionally render the loader
       <Router>
         <ScrollToTop/>
         <Navbar />

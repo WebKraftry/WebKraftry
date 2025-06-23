@@ -15,50 +15,26 @@ const HomePage = () => {
   const navigate = useNavigate();
   const sectionRefs = useRef([]);
 
-  useEffect(() => {
-    sectionRefs.current.forEach((section, index) => {
-      if (!section || index === 0) return; // Skip Hero section
-
-      gsap.fromTo(
-        section,
-        { scale: 0.1, opacity: -1, y:-80 },
-        {
-          scale: 1,
-          opacity: 1,
-          y: 0,
-          scrollTrigger: {
-            // markers: true,
-            trigger: section,
-            start: 'top 110%',
-            end: 'top 30%',
-            scrub: true,
-          },
-          duration: 1,
-          ease: "power3.out",
-        }
-      );
-    });
-  }, []);
 
   return (
     <div className="relative min-h-screen  text-white overflow-x-hidden bg-gradient-to-br from-purple-200 via-purple-300 to-purple-400">
       <div className="relative  ">
         {/* Hero (No scroll animation) */}
-        <div ref={(el) => (sectionRefs.current[0] = el)}>
+        <div >
           <Hero />
         </div>
 
         {/* Animated sections */}
-        <div  className="-mt-10 z-10" ref={(el) => (sectionRefs.current[1] = el)}>
+        <div  className="-mt-1 z-10" >
           <OurCompany />
         </div>
-        <div  className="-mt-10 z-10" ref={(el) => (sectionRefs.current[2] = el)}>
+        <div  className="-mt-1 z-10" >
           <Services />
         </div>
-        <div  className="-mt-10 z-10" ref={(el) => (sectionRefs.current[3] = el)}>
+        <div  className="-mt-1 z-10" >
           <OurValues />
         </div>
-        <div  className="-mt-10 z-10" ref={(el) => (sectionRefs.current[4] = el)}>
+        <div  className="-mt-1 z-10" >
           <TestimonialsSection />
         </div>
 
