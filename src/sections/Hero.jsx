@@ -133,7 +133,7 @@ const Hero = () => {
   return (
     <section
       ref={heroRef}
-      className="relative border h-screen w-full overflow-hidden flex items-center justify-center bg-black"
+      className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black"
     >
       {/* 3D Canvas with reduced brightness */}
       <div className="absolute inset-0 h-full w-full opacity-80">
@@ -157,7 +157,7 @@ const Hero = () => {
       </div>
 
       {/* Darker overlay for better contrast */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-black/20 z-10" />
+      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-black/20 z-10" /> */}
 
       {/* High-Contrast Text Content */}
       <div 
