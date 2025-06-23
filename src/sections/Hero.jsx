@@ -44,7 +44,7 @@ const FloatingShapes = () => {
 };
 
 // 2. Particle System
-const Particles = ({ count = 2000 }) => {
+const Particles = ({ count = 1500 }) => {
   const particlesRef = useRef();
 
   useEffect(() => {
@@ -75,40 +75,10 @@ const Particles = ({ count = 2000 }) => {
         size={0.05}
         sizeAttenuation
         transparent
-        opacity={0.5}  // Reduced opacity for better text visibility
+        opacity={0.5}
         vertexColors
       />
     </points>
-  );
-};
-
-// 3. Error Boundary Wrapper
-const SafeCanvas = ({ children }) => {
-  const [error, setError] = React.useState(null);
-
-  if (error) {
-    return (
-      <div className="h-full w-full flex items-center justify-center bg-black/20 rounded-xl">
-        <p className="text-white">3D viewer unavailable</p>
-      </div>
-    );
-  }
-
-  return (
-    <Canvas
-      gl={{ antialias: true }}
-      onCreated={() => {
-        try {
-          if (!window.WebGLRenderingContext) {
-            throw new Error("WebGL not supported");
-          }
-        } catch (err) {
-          setError(err);
-        }
-      }}
-    >
-      {children}
-    </Canvas>
   );
 };
 
@@ -117,17 +87,28 @@ const Hero = () => {
   const contentRef = useRef();
 
   useEffect(() => {
+    // Ensure text is visible immediately on load
+    gsap.set(contentRef.current.children, { opacity: 1, y: 0 });
+    
+    // Then apply the animation
     gsap.from(contentRef.current.children, {
       opacity: 0,
       y: 50,
       stagger: 0.1,
       duration: 1,
+      delay: 0.3, // Small delay to ensure DOM is ready
+      ease: "power3.out",
       scrollTrigger: {
         trigger: heroRef.current,
         start: "top bottom",
         toggleActions: "play none none none",
       },
     });
+
+    // Clean up ScrollTrigger on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach(instance => instance.kill());
+    };
   }, []);
 
   return (
@@ -135,10 +116,10 @@ const Hero = () => {
       ref={heroRef}
       className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black"
     >
-      {/* 3D Canvas with reduced brightness */}
+      {/* 3D Canvas */}
       <div className="absolute inset-0 h-full w-full opacity-80">
-        <SafeCanvas>
-          <ambientLight intensity={0.3} />  {/* Reduced light intensity */}
+        <Canvas gl={{ antialias: true }}>
+          <ambientLight intensity={0.3} />
           <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={0.5} />
           <pointLight position={[-10, -10, -10]} intensity={0.3} />
           
@@ -146,23 +127,24 @@ const Hero = () => {
             <FloatingShapes />
           </Float>
           
-          <Particles count={1500} />  {/* Reduced particle count */}
+          <Particles />
           <Environment preset="dawn" />
           <OrbitControls 
             enableZoom={false} 
             autoRotate 
             autoRotateSpeed={0.5}
           />
-        </SafeCanvas>
+        </Canvas>
       </div>
 
-      {/* Darker overlay for better contrast */}
-      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-black/20 z-10" /> */}
+      {/* Dark overlay for better text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/50 z-10" />
 
-      {/* High-Contrast Text Content */}
+      {/* Text Content - Now with guaranteed visibility */}
       <div 
         ref={contentRef}
         className="relative z-20 container mx-auto px-6 text-center"
+        style={{ opacity: 1 }} // Initial opacity set
       >
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white 
             drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">

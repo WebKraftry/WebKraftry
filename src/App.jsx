@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Portfolio from "./Pages/Portfolio";
@@ -23,10 +23,22 @@ import WebDevelopment from "./Components/itSolutions/WebDevelopment";
 import HomePage from "./Pages/HomePage";
 import Footer from "./Components/Footer";
 import ScrollToTop from "./services/ScrollToTop";
+import SiteLoader from "./Components/Loader/SiteLoader";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+   useEffect(() => {
+    // Simulate content loading (e.g., fetching data, loading other components)
+    // In a real application, you'd replace this with actual data fetching logic.
+    const timer = setTimeout(() => {
+      setLoading(false); // Hide the loader after a simulated delay
+    }, 3000); // Adjust this delay based on your typical load time
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, []);
   return (
     <div className="">
+       {loading && <SiteLoader />} {/* Conditionally render the loader */}
       <Router>
         <ScrollToTop/>
         <Navbar />
