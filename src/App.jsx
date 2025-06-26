@@ -42,7 +42,7 @@ const App = () => {
       <Router>
         <ScrollToTop/>
         <Navbar />
-        <div className="mt-18 ">
+        <div>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/portfolio" element={<Portfolio />} />

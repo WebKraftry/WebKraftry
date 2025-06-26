@@ -20,12 +20,12 @@ const HomePage = () => {
     <div className="relative min-h-screen  text-white overflow-x-hidden bg-gradient-to-br from-purple-200 via-purple-300 to-purple-400">
       <div className="relative  ">
         {/* Hero (No scroll animation) */}
-        <div >
+        <div className="z-10">
           <Hero />
         </div>
 
         {/* Animated sections */}
-        <div  className="-mt-1 z-10" >
+        <div  className=" z-10" >
           <OurCompany />
         </div>
         <div  className="-mt-1 z-10" >
