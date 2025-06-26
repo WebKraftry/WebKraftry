@@ -24,7 +24,6 @@ const HomePage = () => {
         {/* Hero (No scroll animation) */}
         <div className="z-10">
           <Hero />
-          <Test/>
         </div>
 
         {/* Animated sections */}

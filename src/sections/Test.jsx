@@ -5,16 +5,16 @@ import Badge from './Badge';
 
 const Test = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gray-900">
+    <div className=" flex items-center justify-center px-4">
       <div className="text-center max-w-4xl mx-auto">
         {/* Icon Section */}
-        <div className="flex items-center justify-center gap-6 mb-12 hover:scale-150 hover:gap-10 transition-all delay-300">
+        <div className="flex items-center justify-center gap-6 mb-12 hover:scale-120 hover:gap-10 transition-all delay-300">
           <IconGrid />
           <div className="relative">
             <div className="bg-slate-800 rounded-2xl p-8 shadow-2xl border border-slate-700 ">
               <Shield 
                 size={48} 
-                className="text-blue-400 mx-auto animate-pulse hover:scale-200 transition-all delay-200"
+                className="text-blue-400 mx-auto animate-pulse hover:scale-150 transition-all delay-200"
                 strokeWidth={1.5}
               />
               <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-500 rounded-full animate-ping"></div>

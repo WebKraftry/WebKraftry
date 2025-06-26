@@ -86,17 +86,17 @@ const Navbar = () => {
               {item.path ? (
                 <Link
                   to={item.path}
-                  className="flex items-center gap-1 cursor-pointer hover:text-yellow select-none py-2 px-1 relative group hover:scale-110 transition-all delay-110"
+                  className="flex items-center gap-1 cursor-pointer hover:text-purple-400 select-none py-2 px-1 relative group hover:scale-110 transition-all delay-110"
                 >
                   {item.icon}
                   <span>{item.name}</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-yellow transition-all duration-300 group-hover:w-full  hover:scale-110  delay-110"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full  hover:scale-110  delay-110"></span>
                 </Link>
               ) : (
-                <div className="flex items-center gap-1 cursor-pointer hover:text-yellow select-none py-2 px-1 relative group  hover:scale-110 transition-all delay-110">
+                <div className="flex items-center gap-1 cursor-pointer hover:text-purple-400 select-none py-2 px-1 relative group  hover:scale-110 transition-all delay-110">
                   {item.icon}
                   <span>{item.name}</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-yellow transition-all duration-300 group-hover:w-full  hover:scale-110  delay-110"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full  hover:scale-110  delay-110"></span>
                 </div>
               )}
 
