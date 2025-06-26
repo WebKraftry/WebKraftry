@@ -8,6 +8,7 @@ import TestimonialsSection from "../sections/TestimonialsSection";
 import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Test from "../sections/Test";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,6 +23,7 @@ const HomePage = () => {
         {/* Hero (No scroll animation) */}
         <div className="z-10">
           <Hero />
+          <Test/>
         </div>
 
         {/* Animated sections */}
@@ -37,6 +39,7 @@ const HomePage = () => {
         <div  className="-mt-1 z-10" >
           <TestimonialsSection />
         </div>
+         
 
         {/* Final CTA - clean and solid look */}
         <div 
