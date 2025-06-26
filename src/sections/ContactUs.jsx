@@ -141,13 +141,13 @@ const submitContactForm = async (data) => {
         <section className="text-center mb-16">
           <h1
             ref={headingRef}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-purple-800 mb-6 leading-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-600 mb-6 leading-tight"
           >
-            Get in Touch with WebKraftry
+            Get in Touch with WebKraftery
           </h1>
           <p
             ref={introTextRef}
-            className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl text-gray-500 max-w-3xl mx-auto"
           >
             Have a project in mind, a question about our web development
             services, or just want to say hello ? We're here to help you
@@ -162,10 +162,10 @@ const submitContactForm = async (data) => {
             ref={contactInfoRef}
             className="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-purple-100"
           >
-            <h2 className="text-3xl font-bold text-purple-800 mb-6">
+            <h2 className="text-3xl font-bold text-gray-600 mb-6">
               Reach Out to Our Team
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-8">
+            <p className="text-gray-500 leading-relaxed mb-8">
               Whether you're looking for a custom website solution, SEO
               expertise, Google Advertising our team is
               ready to assist.
@@ -173,42 +173,42 @@ const submitContactForm = async (data) => {
 
             <div className="space-y-6 mb-8">
               <div className="flex items-start">
-                <span className="text-purple-600 text-3xl mr-4">📧</span>
+                <span className="text-black text-3xl mr-4">📧</span>
                 <div>
-                  <h3 className="font-semibold text-xl text-purple-700">
+                  <h3 className="font-semibold text-xl text-gray-600">
                     Email Us
                   </h3>
-                  <p className="text-gray-700">
+                  <p className="text-slate-400">
                     For general inquiries or project discussions.
                   </p>
                   <a
                     href="mailto:info.WebKraftry@gmail.com"
-                    className="text-indigo-600 hover:underline"
+                    className="text-indigo-400 hover:underline"
                   >
-                    info.WebKraftry@gmail.com
+                    info.WebKraftery@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start">
-                <span className="text-purple-600 text-3xl mr-4">📞</span>
+                <span className="text-gray-500 text-3xl mr-4">📞</span>
                 <div>
-                  <h3 className="font-semibold text-xl text-purple-700">
+                  <h3 className="font-semibold text-xl text-gray-600">
                     Call Us
                   </h3>
-                  <p className="text-gray-700">
+                  <p className="text-slate-400">
                     Speak directly with our experts.
                   </p>
                   <a
                     href="tel:+918882320645"
-                    className="text-indigo-600 hover:underline"
+                    className="text-indigo-400 hover:underline"
                   >
                     +91 8882320645
                   </a>
                   <p></p>
                   <a
                     href="tel:+918936950459"
-                    className="text-indigo-600 hover:underline"
+                    className="text-indigo-400 hover:underline"
                   >
                     {" "}
                     +91 8936950459
@@ -217,13 +217,13 @@ const submitContactForm = async (data) => {
               </div>
 
               <div className="flex items-start">
-                <span className="text-purple-600 text-3xl mr-4">📍</span>
+                <span className="text-gray-600 text-3xl mr-4">📍</span>
                 <div>
-                  <h3 className="font-semibold text-xl text-purple-700">
+                  <h3 className="font-semibold text-xl text-gray-600">
                     Visit Our Office
                   </h3>
-                  <p className="text-gray-700">WebKraftry Headquarters:</p>
-                  <address className="not-italic text-indigo-600">
+                  <p className="text-slate-400">WebKraftery Headquarters:</p>
+                  <address className="not-italic text-indigo-400">
                     Vishwash Nagar <br />
                     Sihani Ghaziabad 201001
                   </address>
@@ -231,13 +231,13 @@ const submitContactForm = async (data) => {
               </div>
             </div>
 
-            <h3 className="font-semibold text-xl text-purple-700 mb-4">
+            <h3 className="font-semibold text-xl text-gray-700 mb-4">
               Connect on Social Media
             </h3>
             <div className="flex space-x-5">
               <a
                 href="https://www.instagram.com/WebKraftry?utm_source=qr"
-                className="text-purple-600 hover:text-indigo-600 transition-colors duration-200"
+                className="text-gray-600 hover:text-indigo-600 transition-colors duration-200"
               >
                 {/* LinkedIn Icon */}
                 <svg
@@ -256,7 +256,7 @@ const submitContactForm = async (data) => {
               
               <a
                 href="https://www.instagram.com/WebKraftry?utm_source=qr"
-                className="text-purple-600 hover:text-indigo-600 transition-colors duration-200"
+                className="text-gray-600 hover:text-indigo-600 transition-colors duration-200"
               >
                 {/* Facebook Icon */}
                 <svg
@@ -280,7 +280,7 @@ const submitContactForm = async (data) => {
             ref={formRef}
             className="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-purple-100"
           >
-            <h2 className="text-3xl font-bold text-purple-800 mb-6 text-center">
+            <h2 className="text-3xl font-bold text-gray-600 mb-6 text-center">
               Send Us a Message
             </h2>
             <form
@@ -290,7 +290,7 @@ const submitContactForm = async (data) => {
               <div>
                 <label
                   htmlFor="fullName"
-                  className="block text-purple-900 font-semibold mb-1"
+                  className="block text-gray-600 font-semibold mb-1"
                 >
                   Full Name
                 </label>
@@ -315,7 +315,7 @@ const submitContactForm = async (data) => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-purple-900 font-semibold mb-1"
+                  className="block text-gray-600 font-semibold mb-1"
                 >
                   Email Address
                 </label>
@@ -344,7 +344,7 @@ const submitContactForm = async (data) => {
               <div>
                 <label
                   htmlFor="phoneNo"
-                  className="block text-purple-900 font-semibold mb-1"
+                  className="block text-gray-600 font-semibold mb-1"
                 >
                   Phone Number
                 </label>
@@ -374,7 +374,7 @@ const submitContactForm = async (data) => {
               <div>
                 <label
                   htmlFor="service"
-                  className="block text-purple-900 font-semibold mb-1"
+                  className="block text-gray-600 font-semibold mb-1"
                 >
                   Service Required
                 </label>
@@ -383,7 +383,7 @@ const submitContactForm = async (data) => {
                   {...register("service", {
                     required: "Please select a service",
                   })}
-                  className={`w-full px-4 py-3 rounded-lg bg-white text-purple-900 border focus:outline-none focus:ring-2 focus:ring-purple-500 appearance-none transition-all duration-200 ${
+                  className={`w-full px-4 py-3 rounded-lg bg-white text-gray-600 border focus:outline-none focus:ring-2 focus:ring-purple-500 appearance-none transition-all duration-200 ${
                     errors.service ? "border-red-500" : "border-purple-300"
                   }`}
                 >
@@ -407,7 +407,7 @@ const submitContactForm = async (data) => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-purple-900 font-semibold mb-1"
+                  className="block text-gray-600 font-semibold mb-1"
                 >
                   Message
                 </label>
@@ -437,7 +437,7 @@ const submitContactForm = async (data) => {
                 <button
                   type="submit"
                   disabled={loading} // Disable button when loading
-                  className="bg-gradient-to-r from-purple-700 to-indigo-800 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:from-purple-800 hover:to-indigo-900 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-amber-300 text-gray-500 font-bold px-8 py-4 rounded-full shadow-lg hover:from-purple-800 hover:to-indigo-900 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? "Submitting..." : "Submit Your Inquiry"}
                 </button>
@@ -465,7 +465,7 @@ const submitContactForm = async (data) => {
           ref={mapRef}
           className="bg-white rounded-2xl shadow-xl overflow-hidden mb-16 border border-purple-100"
         >
-          <h2 className="text-3xl font-bold text-purple-800 text-center py-4">
+          <h2 className="text-3xl font-bold text-gray-800 text-center py-4">
             Find Us on the Map
           </h2>
           <div className="w-full h-96 ">

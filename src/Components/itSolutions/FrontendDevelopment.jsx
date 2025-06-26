@@ -114,7 +114,7 @@ const FrontendDevelopment = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-purple-50 to-purple-200 min-h-screen py-2 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-br from-purple-50 to-purple-200 min-h-screen py-2 px-4 sm:px-6 lg:px-8 mt-15">
       <div className="max-w-[90vw] mx-auto rounded-xl shadow-2xl overflow-hidden bg-white">
 
         {/* Hero Section */}
