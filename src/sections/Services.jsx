@@ -1,227 +1,186 @@
-import React from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+// src/components/Services.jsx
 
-// Import Swiper styles
+import React, { useRef } from 'react'; // Import useRef
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
+// Import Swiper styles (These are essential for Swiper's core functionality and layout)
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import 'swiper/css/autoplay'; // Import autoplay styles if needed
 
-// Import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+/**
+ * Service data array. This is a clean, structured way to manage your content.
+ * Using a simple object for each service with a title, description, and SVG path.
+ */
+const serviceData = [
+  {
+    title: 'Custom Website Development',
+    description: 'Crafting bespoke web solutions tailored to your unique business needs and goals.',
+    iconPath: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+  },
+  {
+    title: 'Backend Development',
+    description: 'Building robust and scalable server-side logic and databases to power your applications.',
+    iconPath: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z',
+  },
+  {
+    title: 'Frontend Development',
+    description: 'Creating engaging and intuitive user interfaces that provide seamless and enjoyable experiences.',
+    iconPath: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
+  },
+  {
+    title: 'React Development',
+    description: 'Leveraging the power of React.js to build fast, interactive, and modern single-page applications.',
+    iconPath: 'M13 10V3L4 14h7v7l9-11h-7z',
+  },
+  {
+    title: 'UI/UX Design',
+    description: 'Crafting intuitive and engaging user interfaces (UI) and user experiences (UX) that captivate your audience.',
+    iconPath: 'M9.75 17L9 20l-1 1h6l-1-1l-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+  },
+  {
+    title: 'Software Maintenance & Support',
+    description: 'Ensuring your software runs smoothly with ongoing maintenance, updates, and dedicated support.',
+    iconPath: 'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',
+  },
+  {
+    title: 'SEO Optimization',
+    description: 'Increase your online visibility and attract more organic traffic with our comprehensive SEO services.',
+    iconPath: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+  },
+  {
+    title: 'Advertising',
+    description: 'Drive immediate, targeted traffic to your website with expertly managed Google advertising campaigns.',
+    iconPath: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
+  },
+];
 
-const OurCompany = () => {
-  // Define the list of services with icons (using inline SVG for simplicity)
-  const services = [
-    {
-      title: "Custom Website Development",
-      description: "Crafting bespoke web solutions tailored to your unique business needs and goals.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-700 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
-      ),
-    },
-    {
-      title: "Backend Development",
-      description: "Building robust and scalable server-side logic and databases to power your applications.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-700 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Frontend Development",
-      description: "Creating engaging and intuitive user interfaces that provide seamless and enjoyable experiences.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-700 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-        </svg>
-      ),
-    },
-    {
-      title: "React Development",
-      description: "Leveraging the power of React.js to build fast, interactive, and modern single-page applications.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-700 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-    },
-    {
-      title: "UI/UX Design",
-      description: "Crafting intuitive and engaging user interfaces (UI) and user experiences (UX) that captivate your audience.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-700 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h6l-1-1l-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Software Maintenance & Support",
-      description: "Ensuring your software runs smoothly with ongoing maintenance, updates, and dedicated support.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-700 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-        </svg>
-      ),
-    },
-    {
-      title: "SEO Optimization",
-      description: "Increase your online visibility and attract more organic traffic with our comprehensive  (SEO) services.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-700 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Advertising",
-      description: "Drive immediate, targeted traffic to your website with expertly managed Google advertising campaigns.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-700 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-        </svg>
-      ),
-    },
-  ];
+/**
+ * Reusable component for the SVG icons.
+ * This keeps the main JSX cleaner and makes icons easier to manage.
+ */
+const ServiceIcon = ({ path }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-10 w-10 text-purple-700 mb-6 transition-transform duration-500 group-hover:scale-110"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d={path} />
+  </svg>
+);
+
+/**
+ * The main Services component, featuring a responsive Swiper carousel.
+ */
+const Services = () => {
+  // 1. Create refs for the custom navigation buttons
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
   return (
-    <div className="text-black bg-gradient-to-r from-purple-100 to-purple-300  relative z-15 py-16 px-4 flex flex-col items-center rounded-lg shadow-lg ">
-      
-{/* Custom styles for Swiper pagination and navigation */}
-      <style>
-        {`
-          /* Pagination bullets */
-          .swiper-pagination {
-            position: absolute;
-            bottom: 0px !important; /* Increased bottom to push bullets further down */
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10; /* Ensure bullets are above content */
-          }
+    <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <header className="text-center mb-16">
+          <h2 className="text-5xl font-extrabold text-gray-900 leading-tight">
+            Our <span className="text-purple-600">Cutting-Edge</span> Services
+          </h2>
+          <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
+            From concept to deployment, we deliver powerful digital solutions that drive growth.
+          </p>
+        </header>
 
-          .swiper-pagination-bullet {
-            background-color: #a78bfa !important;  /* Light purple for inactive bullets */
-            opacity: 0.7;
-      
-            width: 10px; /* Adjust size */
-            height: 10px; /* Adjust size */
-            border-radius: 50%; /* Make them perfectly round */
-            transition: all 0.3s ease;
-            margin: 0 6px !important; /* Add more horizontal spacing between bullets */
-          }
-
-          .swiper-pagination-bullet-active {
-            background-color: #8b5cf6 !important; /* Darker purple for active bullet */
-            opacity: 1;
-            width: 12px; /* Slightly larger for active */
-            height: 12px;
-            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.5); /* Add a subtle glow */
-          }
-
-          /* Navigation arrows */
-          .swiper-button-next,
-          .swiper-button-prev {
-            color: #a78bfa !important; /* Purple color for navigation arrows */
-            transition: color 0.3s ease, background-color 0.3s ease;
-            top: 50%; /* Vertically center */
-            transform: translateX(-50%); /* Adjust for perfect centering */
-            z-index: 20; /* Ensure arrows are above content and bullets */
-            width: 40px; /* Make arrows slightly larger for better clickability */
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%; /* Make arrows round */
-           
-            
-          }
-
-          .swiper-button-next:hover,
-          .swiper-button-prev:hover {
-            color: #8b5cf6 !important; /* Darker purple on hover */
-            background-color: rgba(0,0,0,0.6); /* Darker background on hover */
-          }
-
-          /* Adjust arrow positions to be slightly more outside the slide content */
-          .swiper-button-prev {
-            left: 15px !important; /* Push left arrow slightly more to the left */
-          }
-
-          .swiper-button-next {
-            right: 15px !important; /* Push right arrow slightly more to the right */
-          }
-
-          /* Responsive adjustments for arrows on smaller screens */
-          @media (max-width: 768px) {
-            .swiper-button-next,
-            .swiper-button-prev {
-              transform: scale(0.8) translateY(-50%); /* Slightly smaller arrows on mobile, maintain center */
-              top: 50%;
-              width: 35px;
-              height: 35px;
-            }
-            .swiper-button-prev {
-              left: 5px !important;
-            }
-            .swiper-button-next {
-              right: 5px !important;
-            }
-          }
-        `}
-      </style>
-      {/* Our Services Section with Swiper */}
-      <div className=" paraFont-900 max-w-[90vw]  border-black  mx-auto w-full mt-10 p-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-purple-700">Our Services</h2>
-        <Swiper 
+        {/* Swiper Carousel Component */}
+        <Swiper
           spaceBetween={30}
           slidesPerView={1}
           autoplay={{
-            delay: 3000, // Auto-swipe every 1 seconds
-            disableOnInteraction: false, // Continue autoplay after user interaction
+            delay: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
           loop={true}
           pagination={{
             clickable: true,
+            el: '.swiper-pagination-custom',
+            // Use a render function to apply Tailwind CSS classes to the bullets
+            renderBullet: function (index, className) {
+                return `<span class="${className} !bg-purple-300 opacity-90 transition-all duration-300 w-2.5 h-2.5 rounded-full mx-2 !m-0 !mr-2 swiper-pagination-bullet-active:!bg-purple-600 swiper-pagination-bullet-active:w-3.5 swiper-pagination-bullet-active:h-3.5 swiper-pagination-bullet-active:shadow-md"></span>`;
+            },
           }}
-          navigation={true}
+          // 2. Set the navigation to use the refs instead of selectors
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          // 3. Use `onInit` to ensure the refs are available when the Swiper instance is created
+          onInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper h-[13rem] "
+          className="relative pb-16"
           breakpoints={{
-            640: { // sm breakpoint
+            640: {
               slidesPerView: 2,
               spaceBetween: 20,
             },
-            1024: { // lg breakpoint
+            1024: {
               slidesPerView: 3,
-              spaceBetween: 30,
+              spaceBetween: 40,
             },
           }}
         >
-          {services.map((service, index) => (
+          {/* Map through the service data to create Swiper slides */}
+          {serviceData.map((service, index) => (
             <SwiperSlide key={index}>
-              <div className="border-t  border-black bg-white  p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border flex flex-col items-center text-center h-full">
-                {service.icon}
-                <h3 className="text-2xl font-semibold text-purple-700 mb-4">{service.title}</h3>
-                <p className=" flex-grow">{service.description}</p>
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col items-center text-center h-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer group">
+                <ServiceIcon path={service.iconPath} />
+                <h3 className="text-3xl font-bold text-gray-900 mb-3 leading-snug">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 flex-grow text-lg">{service.description}</p>
               </div>
             </SwiperSlide>
           ))}
-        </Swiper>
-      </div>
-      <div className='bona-regular mt-10 text-lg'>
-        Explore Our Services and Give us opportunity to solve your Problems
-      </div>
 
-     
-    </div>
+          {/* 4. Attach the refs to the custom navigation buttons */}
+          <div
+            ref={prevRef} // Attach ref to the button element
+            className="swiper-button-prev-custom absolute top-1/2 -translate-y-1/2 left-4 z-20 flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 border border-gray-300 hover:bg-purple-600 hover:text-white hover:border-purple-600 hover:shadow-lg"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+          </div>
+          <div
+            ref={nextRef} // Attach ref to the button element
+            className="swiper-button-next-custom absolute top-1/2 -translate-y-1/2 right-4 z-20 flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 border border-gray-300 hover:bg-purple-600 hover:text-white hover:border-purple-600 hover:shadow-lg"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </div>
+
+          {/* Custom Pagination container - Positioned at the bottom center */}
+          <div className="swiper-pagination-custom absolute bottom-4 inset-x-0 flex justify-center items-center z-10"></div>
+        </Swiper>
+        
+        {/* Footer/Call to Action */}
+        <footer className="mt-20 text-center text-gray-500">
+          <p className="text-lg font-medium">
+            Ready to build something amazing? <a href="#contact" className="text-purple-600 hover:text-purple-800 transition-colors font-bold">Let's talk.</a>
+          </p>
+        </footer>
+      </div>
+    </section>
   );
 };
 
-export default OurCompany;
+export default Services;
