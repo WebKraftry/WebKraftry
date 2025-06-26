@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useNavigate } from 'react-router-dom';
 import kunalimg from '../../assets/Kunal.jpg'
+import CTA from '../Common/CTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -125,18 +126,7 @@ const LeadershipTeam = () => {
         </section>
 
         {/* Call to Action Section */}
-        <section ref={ctaRef} className="paraFont-900 bg-gradient-to-r from-purple-900 to-purple-700 text-white rounded-2xl shadow-xl p-10 md:p-16 text-center">
-          <h3 className="text-3xl sm:text-4xl font-extrabold mb-4 leading-tight">
-            Ready to Collaborate with Our Experts?
-          </h3>
-          <p className="text-lg sm:text-xl mb-8 max-w-3xl mx-auto opacity-95">
-            Connect with our leadership team to discuss your next digital project and discover how WebKraftry can bring your vision to life.
-          </p>
-          <button onClick={()=>{navigate('/contactus')}} className="bg-white text-purple-700 font-bold py-4 px-10 rounded-full shadow-lg hover:bg-purple-100 hover:text-purple-900 transition-all duration-300 transform hover:scale-105">
-            Contact Our Team
-          </button>
-        </section>
-
+        <CTA/>
       </div>
     </div>
   );

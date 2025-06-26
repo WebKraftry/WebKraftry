@@ -119,21 +119,21 @@ const OurCompany = () => {
             Our Company
           </p>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight text-white">
-            WebKraftry Private Limited is your trusted development partner in Ghaziabad
+            "WebKraftery – Where Ideas Turn Into Impactful Software"
           </h2>
         </div>
 
         {/* Right Column */}
         <div ref={rightColRef} className="flex items-center">
           <p className="text-lg md:text-xl leading-relaxed text-purple-100/90">
-            WebKraftry Pvt is a privately owned{' '}
+            WebKraftery Pvt. Ltd. is a privately owned{' '}
             <strong className="text-white font-semibold">
-              software development company in Ghaziabad
+              software development company
             </strong>{' '}
             specializing in custom web solutions and{' '}
             <strong className="text-white font-semibold">
-              digital transformation services
-            </strong>. Our team of experts delivers cutting-edge{' '}
+               digital transformation services
+            </strong>. Our team of experienced professionals delivers cutting-edge{' '}
             <strong className="text-white font-semibold">
               web applications
             </strong>{' '}
@@ -141,7 +141,7 @@ const OurCompany = () => {
             <strong className="text-white font-semibold">
               SEO-optimized platforms
             </strong>{' '}
-            tailored to your business needs.
+            tailored to meet your unique business goals.
           </p>
         </div>
       </div>
@@ -154,7 +154,7 @@ const OurCompany = () => {
         <span className="text-xl text-white font-semibold tracking-wide relative z-10">
           Discover Our Solutions →
         </span>
-        <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+        <span className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
       </div>
     </div>
   );

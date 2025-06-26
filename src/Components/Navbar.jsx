@@ -57,13 +57,13 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="noto-serif bg-gray-900 text-white shadow-lg shadow-black/30 fixed top-0 w-full z-50 border-b border-white/10 mb-24">
+    <nav className="noto-serif bg-gray-800 text-white shadow-lg shadow-black/30 fixed top-0 w-full z-50 border-b border-white/10 mb-50">
 
-      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-2 py-1 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-bold overflow-hidden">
+        <div className="text-2xl font-bold overflow-hidden hover:scale-120 transition-all delay-100">
           <Link to="/" onClick={closeMobileMenu}>
-            <div className=" p-2 shadow-md">
+            <div className="p-1 shadow-md">
               <Logo/>
             </div>
           </Link>
@@ -86,23 +86,23 @@ const Navbar = () => {
               {item.path ? (
                 <Link
                   to={item.path}
-                  className="flex items-center gap-1 cursor-pointer hover:text-purple-300 select-none py-2 px-1 relative group"
+                  className="flex items-center gap-1 cursor-pointer hover:text-yellow select-none py-2 px-1 relative group hover:scale-110 transition-all delay-110"
                 >
                   {item.icon}
                   <span>{item.name}</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-yellow transition-all duration-300 group-hover:w-full  hover:scale-110  delay-110"></span>
                 </Link>
               ) : (
-                <div className="flex items-center gap-1 cursor-pointer hover:text-purple-300 select-none py-2 px-1 relative group">
+                <div className="flex items-center gap-1 cursor-pointer hover:text-yellow select-none py-2 px-1 relative group  hover:scale-110 transition-all delay-110">
                   {item.icon}
                   <span>{item.name}</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-yellow transition-all duration-300 group-hover:w-full  hover:scale-110  delay-110"></span>
                 </div>
               )}
 
               {item.children && (
                 <ul
-                  className={`absolute text-lg z-50 bg-white text-black mt-[1px] p-2 rounded shadow-lg w-78 origin-top transition-all duration-200 ease-out transform font-sans font-medium tracking-wide
+                  className={`absolute text-lg z-50 bg-white text-black mt-[7px] p-2 rounded shadow-lg w-78 origin-top transition-all duration-200 ease-out transform font-sans font-medium tracking-wide
                     ${activeDropdown === item.name ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'}
                     group-hover:scale-y-100 group-hover:opacity-100 group-hover:pointer-events-auto
                   `}
@@ -197,6 +197,7 @@ const Navbar = () => {
           aria-hidden="true"
         />
       )}
+      <div className='bg-purple-200 max-w-full h-0.5'></div>
     </nav>
   );
 };

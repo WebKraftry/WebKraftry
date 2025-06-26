@@ -4,6 +4,7 @@ import { Float, OrbitControls, Environment } from "@react-three/drei";
 import * as THREE from "three";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Test from "./Test";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -169,7 +170,6 @@ const Hero = () => {
           </button>
         </div>
       </div>
-
       {/* Scrolling Indicator */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
         <div className="flex flex-col items-center">

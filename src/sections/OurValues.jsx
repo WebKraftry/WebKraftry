@@ -152,7 +152,7 @@ const OurValues = () => {
           <div 
             key={i}
             ref={el => blobRefs.current[i] = el}
-            className="absolute rounded-full bg-gradient-to-r from-purple-400 to-pink-400"
+            className="absolute rounded-full bg-gray-500"
             style={{
               width: `${Math.random() * 300 + 100}px`,
               height: `${Math.random() * 300 + 100}px`,
@@ -191,7 +191,7 @@ const OurValues = () => {
                 <p className="text-gray-700 group-hover:text-gray-900 transition-colors duration-300 flex-grow">
                   {value.description}
                 </p>
-                <div className="mt-6 h-1 w-0 group-hover:w-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-700"></div>
+                <div className="mt-6 h-1 w-0 group-hover:w-full bg-violet-500 transition-all duration-700"></div>
               </div>
             </div>
           ))}

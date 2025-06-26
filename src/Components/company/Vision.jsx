@@ -51,7 +51,7 @@ const Vision = () => {
 
         {/* Header Section */}
         <section className="text-center mb-16">
-          <h1 ref={headingRef} className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-purple-800 mb-6 leading-tight">
+          <h1 ref={headingRef} className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-800 mb-6 leading-tight">
             Our Mission, Vision & Core Values
           </h1>
           <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiJavascript, SiHtml5, SiCss3, SiTailwindcss, SiVite } from "react-icons/si";
+import Test from "../../sections/Test";
 
 const icons = [
   { Icon: SiMongodb, name: "MongoDB" },

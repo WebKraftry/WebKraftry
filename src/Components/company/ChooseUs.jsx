@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useNavigate } from 'react-router-dom';
+import CTA from '../Common/CTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,7 +75,7 @@ const ChooseUs = () => {
         {/* Header Section */}
         <section className="text-center paraFont-900 mb-16">
           <h1 ref={headingRef} className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-purple-800 mb-6 leading-tight">
-            Why Partner with WebKraftry?
+            Why Partner with WebKraftery?
           </h1>
           <p ref={introTextRef} className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
             Choosing the right digital partner is crucial for your business success. At WebKraftry, we combine expertise, innovation, and a client-first approach to deliver unparalleled web solutions.
@@ -157,18 +158,7 @@ const ChooseUs = () => {
         </section>
 
         {/* Call to Action Section */}
-        <section ref={ctaRef} className="bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-2xl shadow-xl p-10 md:p-16 text-center">
-          <h3 className="text-3xl sm:text-4xl font-extrabold mb-4 leading-tight">
-            Ready to Experience the WebKraftry Difference?
-          </h3>
-          <p className="text-lg sm:text-xl mb-8 max-w-3xl mx-auto opacity-95">
-            Let us help you build a powerful online presence that drives real business value.
-          </p>
-          <button onClick={()=>{navigate('/contactus')}}
-          className="bg-white text-purple-700 font-bold py-4 px-10 rounded-full shadow-lg hover:bg-purple-100 hover:text-purple-900 transition-all duration-300 transform hover:scale-105">
-            Get a Free Quote Today
-          </button>
-        </section>
+        <CTA/>
 
       </div>
     </div>

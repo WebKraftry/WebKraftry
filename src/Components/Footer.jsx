@@ -2,14 +2,14 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="noto-serif bg-gray-900 text-gray-300 py-12 px-4 sm:px-6 lg:px-8 font-sans">
+    <footer className="noto-serif bg-gray-800 text-gray-300 py-12 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
 
         {/* Company Info Section */}
         <div className="mb-8 md:mb-0">
-          <h3 className="text-2xl font-bold mb-4 text-white">Pryzen Technologies</h3>
+          <h3 className="text-2xl font-bold mb-4 text-white">WEBKRAFTERY</h3>
           <p className="text-gray-400 leading-relaxed text-sm">
-            Your trusted partner for innovative web solutions, driving digital transformation and online success. We build, optimize, and maintain your digital presence.
+            Your trusted partner for innovative web solutions — driving digital transformation, boosting online success, and delivering lasting impact. We design, optimize, and maintain powerful digital experiences tailored to your business.
           </p>
           <div className="flex space-x-4 mt-6">
             <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
@@ -60,9 +60,9 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-bold mb-4 text-white">Contact Us</h3>
           <address className="not-italic text-gray-400 space-y-2 text-sm">
-            <p>Vishwash Nagar Sihani</p>
-            <p>Ghaziabad -201001</p>
-            <p>Email: <a href="mailto:info.WebKraftry@gmail.com" className="hover:text-white">info.WebKraftry@gmail.com</a></p>
+            <p> Office Address: Vishwash Nagar, Sihani</p>
+            <p>Ghaziabad, Uttar Pradesh -201001</p>
+            <p>Email: <a href="mailto:info.WebKraftry@gmail.com" className="hover:text-white">info.WebKraftery@gmail.com</a></p>
             <p>Phone: <a href="tel:+918882320645" className="hover:text-white">+91 8882320645</a></p>
             <p>Phone: <a href="tel:+918936950459" className="hover:text-white">+91 8936950459</a></p>
           </address>
@@ -71,7 +71,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="border-t border-gray-700 mt-10 pt-8 text-center text-gray-500 text-sm">
-        <p>&copy; {new Date().getFullYear()} WebKraftry. All rights reserved. | <a href="#" className="hover:text-white">Privacy Policy</a> | <a href="#" className="hover:text-white">Terms of Service</a></p>
+        <p>&copy; {new Date().getFullYear()} WebKraftery. All rights reserved. | <a href="#" className="hover:text-white">Privacy Policy</a> | <a href="#" className="hover:text-white">Terms of Service</a></p>
       </div>
     </footer>
   );

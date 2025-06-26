@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useNavigate } from 'react-router-dom';
 import img1 from '../../assets/About1.jpg'
 import img2 from '../../assets/About2.jpg'
+import CTA from '../Common/CTA';
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutCompany = () => {
@@ -145,7 +146,7 @@ const AboutCompany = () => {
         <section className=" paraFont-600 relative overflow-hidden bg-gradient-to-r from-purple-700 to-purple-800 text-white rounded-3xl shadow-xl mb-16 p-8 md:p-16 lg:p-20 flex flex-col md:flex-row items-center justify-between gap-10">
           <div ref={heroTextRef} className="md:w-3/5 text-center md:text-left z-10">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight tracking-tight">
-              WebKraftry: Innovating Your Digital Future
+              WebKraftery: Innovating Your Digital Future
             </h1>
             <p className="text-lg sm:text-xl opacity-95 max-w-2xl mx-auto md:mx-0">
               Empowering businesses with cutting-edge web services that drive growth, enhance user experience, and define digital excellence.
@@ -262,18 +263,7 @@ const AboutCompany = () => {
         </section>
 
         {/* Call to Action: Prominent & Action-Oriented */}
-        <section ref={ctaRef} className="paraFont-900 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-2xl shadow-xl p-10 md:p-16 text-center">
-          <h3 className="text-3xl sm:text-4xl font-extrabold mb-4 leading-tight">
-            Ready to Transform Your Digital Presence?
-          </h3>
-          <p className="text-lg sm:text-xl mb-8 max-w-3xl mx-auto opacity-95">
-            Let's discuss how WebKraftry can help you achieve your business goals with expert web services.
-          </p>
-          <button onClick={()=>{navigate('/contactus')}}
-          className="bg-white text-purple-700 font-bold py-4 px-10 rounded-full shadow-lg hover:bg-purple-100 hover:text-purple-900 transition-all duration-300 transform hover:scale-105">
-            Schedule Your Free Consultation
-          </button>
-        </section>
+        <CTA/>
 
       </div>
     </div>
