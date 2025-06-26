@@ -76,21 +76,27 @@ const LeadershipTeam = () => {
   const teamMembers = [
     {
       name: 'Kunal Koushik',
-      title: 'CEO & Founder',
-      bio: 'With over 2 years in digital innovation and web strategy, Mr. Koushik leads WebKraftry with a vision for empowering businesses through cutting-edge web development and digital transformation.',
-      image: kunalimg
+      title: 'CEO & CO-Founder',
+      phone:"8882320645",
+      email:"kunalkoushik44@gmail.com",
+      bio:'Passionate software developer skilled in building scalable web applications and crafting seamless user experiences. Proficient in modern technologies with a focus on clean, efficient code.'
     },
     {
       name: 'Mr. Prince Tyagi',
       title: 'Co-Founder & Chief Technology Officer (CTO)',
-      bio: 'A seasoned architect of scalable web applications and robust backend systems. Prince ensures WebKraftry delivers secure, high-performance custom web solutions leveraging the latest technologies.',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?fit=crop&w=300&h=300',
+      phone:'8936950459',
+      email:'princetyagi1901@gmail.com',
+      bio:'Passionate software developer skilled in building scalable web applications and crafting seamless user experiences. Proficient in modern technologies with a focus on clean, efficient code.'
+   
     },
     {
-      name: 'Mr Shivam Kumar',
-      title: 'Head of Marketing & Growth',
-      bio: 'Sarah specializes in SEO optimization, content strategy, and digital marketing campaigns that drive measurable ROI. Her expertise helps clients achieve significant online visibility and business growth.',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?fit=crop&w=300&h=300',
+      name: 'The RealCoder',
+      title: 'Co-Founder and Managerial Director',
+      phone:'9899794119',
+      email:'realcoder24@gmail.com',
+      bio:'Passionate software developer skilled in building scalable web applications and crafting seamless user experiences. Proficient in modern technologies with a focus on clean, efficient code.'
+   
+      
     },
     // {
     //   name: 'Mr. Robert Green',
@@ -122,8 +128,9 @@ const LeadershipTeam = () => {
           <CTACard
             name={member.name}
             role={member.title}
-            email="jane@webkraftery.com"
-            phone="+1 (555) 123-4568"
+            email={member.email}
+            phone={member.phone}
+            bio={member.bio}
             logoText="WEB KRAFTERY"
           />
           </div>
