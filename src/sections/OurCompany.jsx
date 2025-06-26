@@ -96,7 +96,7 @@ const OurCompany = () => {
   return (
     <div
       ref={containerRef}
-      className="relative z-10 py-24 px-6 md:px-8 flex flex-col items-center overflow-hidden"
+      className="relative z-10 py-4  md:px-8 flex flex-col items-center overflow-hidden"
       style={{
         background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.9) 0%, rgba(126, 58, 242, 0.8) 50%, rgba(168, 85, 247, 0.7) 100%)',
         boxShadow: '0 25px 50px -12px rgba(139, 92, 246, 0.25)'
@@ -112,7 +112,7 @@ const OurCompany = () => {
         }}
       />
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 p-6 relative z-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1  md:grid-cols-2 gap-12 p-6 relative z-10">
         {/* Left Column */}
         <div ref={leftColRef} className="flex flex-col justify-center space-y-4">
           <p className="text-sm text-purple-200 font-medium tracking-wider uppercase mb-2">
@@ -124,7 +124,7 @@ const OurCompany = () => {
         </div>
 
         {/* Right Column */}
-        <div ref={rightColRef} className="flex items-center">
+        <div ref={rightColRef} className="flex items-center text-justify">
           <p className="text-lg md:text-xl leading-relaxed text-purple-100/90">
             WebKraftery Pvt. Ltd. is a privately owned{' '}
             <strong className="text-white font-semibold">

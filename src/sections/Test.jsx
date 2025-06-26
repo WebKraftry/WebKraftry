@@ -28,9 +28,9 @@ const Test = () => {
 
         {/* Main Title */}
         <div className="mb-8">
-          <h1 className="text-6xl md:text-7xl font-bold mb-4">
+          <h1 className="text-6xl flex flex-col md:flex-row overflow-hidden md:text-7xl font-bold mb-4">
             <span className="text-slate-500">WEB</span>
-            <span className="text-slate-400 mx-4">·</span>
+            <span className="text-slate-400 mx-4 hidden md:block ">·</span>
             <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
               KRAFTERY
             </span>
