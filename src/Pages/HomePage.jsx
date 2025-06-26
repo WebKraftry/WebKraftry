@@ -41,7 +41,7 @@ const HomePage = () => {
         {/* Final CTA - clean and solid look */}
         <div 
           ref={(el) => (sectionRefs.current[5] = el)}
-          className="-mt-10 z-10 max-w-4xl mx-auto my-20 p-10 bg-[#1e1e2f] rounded-2xl shadow-xl border border-blue-800"
+          className=" z-10 max-w-4xl mx-auto my-20 p-10 bg-[#1e1e2f] rounded-2xl shadow-xl border border-blue-800"
         >
           <div className="text-center space-y-6">
             <h2 className="text-4xl font-bold text-white">

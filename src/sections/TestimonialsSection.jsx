@@ -1,182 +1,214 @@
-import React from 'react';
-// Import Swiper React components
+import React, { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { gsap } from 'gsap';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 
-// Import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
 const TestimonialsSection = () => {
+  const containerRef = useRef(null);
+  const titleRef = useRef(null);
+  const swiperRef = useRef(null);
+
+  useEffect(() => {
+    // Initialize GSAP animations after component mounts
+    const ctx = gsap.context(() => {
+      gsap.from(titleRef.current, {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "elastic.out(1, 0.5)",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        }
+      });
+
+      gsap.from(".swiper-slide", {
+        y: 50,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 0.7,
+        ease: "back.out(1.2)",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 70%",
+          toggleActions: "play none none none"
+        }
+      });
+    }, containerRef);
+
+    return () => ctx.revert(); // Cleanup animations
+  }, []);
+
   const testimonials = [
     {
-      quote: "Techwarezen transformed our online presence. Their expertise and dedication are truly remarkable. We saw a significant increase in engagement and conversions.",
+      quote: "WebKraftery transformed our online presence. Their expertise and dedication are truly remarkable. We saw a significant increase in engagement and conversions.",
       author: "Jane Doe",
       title: "CEO of InnovateCorp",
-      avatar: "https://placehold.co/100x100/A78BFA/ffffff?text=JD" // Placeholder image
+      avatar: "https://placehold.co/100x100/A78BFA/ffffff?text=JD",
+      gradient: "bg-gradient-to-br from-purple-500 via-indigo-600 to-blue-700"
     },
     {
-      quote: "The team at Techwarezen delivered a stunning e-commerce platform that exceeded our expectations. Their communication and support throughout the project were exceptional.",
+      quote: "The team at WebKraftery delivered a stunning e-commerce platform that exceeded our expectations. Their communication and support throughout the project were exceptional.",
       author: "John Smith",
       title: "Founder of E-Shop Solutions",
-      avatar: "https://placehold.co/100x100/8B5CF6/ffffff?text=JS" // Placeholder image
+      avatar: "https://placehold.co/100x100/8B5CF6/ffffff?text=JS",
+      gradient: "bg-gradient-to-br from-purple-600 via-fuchsia-600 to-pink-600"
     },
     {
-      quote: "Working with Techwarezen was a seamless experience. Their game development skills are top-notch, and they brought our vision to life perfectly.",
+      quote: "Working with WebKraftery was a seamless experience. Their game development skills are top-notch, and they brought our vision to life perfectly.",
       author: "Emily White",
       title: "Game Studio Lead",
-      avatar: "https://placehold.co/100x100/5B21B6/ffffff?text=EW" // Placeholder image
+      avatar: "https://placehold.co/100x100/5B21B6/ffffff?text=EW",
+      gradient: "bg-gradient-to-br from-indigo-600 via-purple-600 to-violet-700"
     },
     {
-      quote: "Their SEO optimization services significantly boosted our organic traffic. Techwarezen is a reliable partner for digital growth.",
+      quote: "Their SEO optimization services significantly boosted our organic traffic. WebKraftery is a reliable partner for digital growth.",
       author: "Michael Brown",
       title: "Marketing Director",
-      avatar: "https://placehold.co/100x100/6D28D9/ffffff?text=MB" // Placeholder image
+      avatar: "https://placehold.co/100x100/6D28D9/ffffff?text=MB",
+      gradient: "bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600"
     },
     {
-      quote: "The React application developed by Techwarezen is incredibly fast and user-friendly. Highly recommend their development team!",
+      quote: "The React application developed by WebKraftery is incredibly fast and user-friendly. Highly recommend their development team!",
       author: "Sarah Green",
       title: "Product Manager",
-      avatar: "https://placehold.co/100x100/7C3AED/ffffff?text=SG" // Placeholder image
+      avatar: "https://placehold.co/100x100/7C3AED/ffffff?text=SG",
+      gradient: "bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-700"
     },
   ];
 
   return (
-    <div className=" bg-gradient-to-r from-purple-100 to-purple-300  text-white   py-20 px-4 rounded-lg shadow-lg z-11 ">
-      {/* Custom styles for Swiper pagination and navigation specific to this component */}
-      <style>
-        {`
-          /* Ensure Swiper container has relative positioning for absolute children */
-          .swiper-container-testimonials {
-            position: relative;
-            padding-bottom: 60px; /* Space for pagination */
-          }
+    <div 
+      ref={containerRef}
+      className="relative py-28 px-4 overflow-hidden bg-gradient-to-br from-purple-50/70 via-blue-50/70 to-indigo-50/70"
+    >
+      {/* Decorative floating blobs */}
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        {[...Array(5)].map((_, i) => (
+          <div 
+            key={i}
+            className="absolute rounded-full bg-gradient-to-r from-purple-300/40 to-blue-300/40"
+            style={{
+              width: `${Math.random() * 300 + 100}px`,
+              height: `${Math.random() * 300 + 100}px`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              filter: 'blur(80px)'
+            }}
+          />
+        ))}
+      </div>
 
-          /* Pagination bullets */
-          .swiper-pagination-testimonials {
-            position: absolute;
-            // bottom: 20px !important; /* Position bullets below the slides */
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10; /* Ensure bullets are above content */
-          }
-
-          .swiper-pagination-testimonials .swiper-pagination-bullet {
-            background-color: #a78bfa !important; /* Light purple for inactive bullets */
-            opacity: 0.7;
-            width: 10px; /* Adjust size */
-            height: 10px; /* Adjust size */
-            border-radius: 50%; /* Make them perfectly round */
-            transition: all 0.3s ease;
-            margin: 0 6px !important; /* Add more horizontal spacing between bullets */
-          }
-
-          .swiper-pagination-testimonials .swiper-pagination-bullet-active {
-            background-color: #8b5cf6 !important; /* Darker purple for active bullet */
-            opacity: 1;
-            width: 12px; /* Slightly larger for active */
-            height: 12px;
-            border-radius: 50%; /* Ensure it's explicitly circular */
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.7); /* Enhanced glow for active circular bullet */
-          }
-
-          /* Navigation arrows */
-          .swiper-button-next-testimonials,
-          .swiper-button-prev-testimonials {
-            // color: #a78bfa !important; /* Purple color for navigation arrows */
-            transition: color 0.3s ease, background-color 0.3s ease;
-            top: 50%; /* Vertically center */
-            transform: translateY(-50%); /* Adjust for perfect centering */
-            z-index: 20; /* Ensure arrows are above content and bullets */
-            width: 40px; /* Make arrows slightly larger for better clickability */
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%; /* Make arrows round */
-            background-color: rgba(0,0,0,0.4); /* Semi-transparent background for visibility */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Add subtle shadow to arrows */
-          }
-
-          .swiper-button-next-testimonials:hover,
-          .swiper-button-prev-testimonials:hover {
-            color: #8b5cf6 !important; /* Darker purple on hover */
-           
-          }
-
-          /* Adjust arrow positions to be slightly more outside the slide content */
-          .swiper-button-prev-testimonials {
-            left: 15px !important; /* Push left arrow slightly more to the left */
-          }
-
-          .swiper-button-next-testimonials {
-            right: 15px !important; /* Push right arrow slightly more to the right */
-          }
-
-          /* Responsive adjustments for arrows on smaller screens */
-          @media (max-width: 768px) {
-            .swiper-button-next-testimonials,
-            .swiper-button-prev-testimonials {
-              transform: scale(0.8) translateY(-50%); /* Slightly smaller arrows on mobile, maintain center */
-              top: 50%;
-              width: 35px;
-              height: 35px;
-            }
-            .swiper-button-prev-testimonials {
-              left: 5px !important;
-            }
-            .swiper-button-next-testimonials {
-              right: 5px !important;
-            }
-          }
-        `}
-      </style>
-
-      <div className=" mx-auto w-full ">
-        <h3 className="paraFont-900 text-4xl text-purple-800 font-bold text-center mb-12 ">What Our Clients Say</h3>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <h3 
+          ref={titleRef}
+          className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 md:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 opacity-0"
+        >
+          What Our Clients Say
+        </h3>
+        
         <Swiper
+          ref={swiperRef}
           spaceBetween={30}
           slidesPerView={1}
+          centeredSlides={true}
+          loop={true}
           autoplay={{
-            delay: 3000, // Auto-swipe every 3 seconds
-            disableOnInteraction: false, // Continue autoplay after user interaction
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true
           }}
-          loop={true} // Continuous circular motion
-        //   pagination={{
-        //     clickable: true,
-        //  }}
-        //  navigation={true}
-          
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+            el: '.testimonial-pagination',
+            bulletClass: 'testimonial-bullet',
+            bulletActiveClass: 'testimonial-bullet-active'
+          }}
+          navigation={{
+            nextEl: '.testimonial-next',
+            prevEl: '.testimonial-prev'
+          }}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper" // Unique class for this Swiper instance
+          breakpoints={{
+            768: {
+              slidesPerView: 1.2,
+            },
+            1024: {
+              slidesPerView: 1.5,
+            }
+          }}
+          className="relative"
+          onInit={(swiper) => {
+            // Force Swiper to properly initialize
+            setTimeout(() => swiper.update(), 100);
+          }}
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-gradient-to-r from-purple-600 to-purple-900 p-8 rounded-lg shadow-xl border border-purple-700 flex flex-col items-center text-center max-w-2xl mx-auto h-full justify-between">
-                {/* <img
-                  src={testimonial.avatar}
-                  alt={`${testimonial.author}'s avatar`}
-                  className="w-24 h-24 rounded-full object-cover mb-6 border-4 border-purple-500"
-                  onError={(e) => { e.target.onerror = null; e.target.src = `https://placehold.co/100x100/A78BFA/ffffff?text=${testimonial.author.split(' ').map(n => n[0]).join('')}`; }} // Fallback for image loading errors
-                /> */}
-                <p className="bona-italic text-purple-100 mb-6 flex-grow text-lg leading-relaxed">
+              <div 
+                className={`${testimonial.gradient} p-8 md:p-10 rounded-3xl shadow-2xl border border-white/30 flex flex-col items-center text-center h-full min-h-[350px] md:min-h-[400px] justify-between transition-transform duration-500 hover:scale-[1.02]`}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-white/30 rounded-full blur-md opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.author}
+                    className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover mb-6 md:mb-8 border-4 border-white/40 group-hover:border-white/60 transition-all duration-300 relative z-10"
+                  />
+                </div>
+                
+                <p className="text-white/90 text-lg md:text-xl lg:text-2xl leading-relaxed mb-6 md:mb-8 font-medium italic">
                   "{testimonial.quote}"
                 </p>
-                <div className="text-purple-300 font-semibold text-base">
-                  <p>- {testimonial.author}</p>
-                  <p className="text-sm text-purple-200">{testimonial.title}</p>
+                
+                <div className="text-white">
+                  <p className="text-lg md:text-xl font-bold mb-1">{testimonial.author}</p>
+                  <p className="text-white/80 text-sm md:text-base">{testimonial.title}</p>
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* Custom pagination */}
+        <div className="testimonial-pagination flex justify-center mt-8 gap-2" />
+
+        {/* Custom navigation */}
+        <div className="testimonial-next absolute right-4 md:right-8 top-1/2 z-20 -translate-y-1/2 cursor-pointer hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+        <div className="testimonial-prev absolute left-4 md:left-8 top-1/2 z-20 -translate-y-1/2 cursor-pointer hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </div>
       </div>
+
+      <style jsx global>{`
+        .testimonial-bullet {
+          width: 12px;
+          height: 12px;
+          background: rgba(255, 255, 255, 0.5);
+          transition: all 0.3s ease;
+          margin: 0 6px !important;
+          border-radius: 9999px;
+          cursor: pointer;
+        }
+        
+        .testimonial-bullet-active {
+          background: white;
+          transform: scale(1.3);
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+      `}</style>
     </div>
   );
 };
