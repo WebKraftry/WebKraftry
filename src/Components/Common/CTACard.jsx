@@ -1,11 +1,12 @@
 import React from 'react';
-import { Mail, Phone, User } from 'lucide-react';
+import { Mail, Phone, User, Pen } from 'lucide-react';
 
 const CTACard = ({ 
   name, 
   role, 
   email, 
   phone, 
+  bio,
   logoText = "WEB KRAFTERY" 
 }) => {
   const handleEmailClick = () => {
@@ -56,6 +57,13 @@ const CTACard = ({
             <Phone className="w-4 h-4" />
             <span className="group-hover:underline">{phone}</span>
           </button>
+          <div className='flex flex-row justify-center gap-1'>
+            <div>
+                <Pen className=" w-4 h-4 items-center text-black"/>
+            </div>
+            <p>{bio}</p>
+          </div>
+          
         </div>
       </div>
     </div>
