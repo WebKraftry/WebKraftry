@@ -98,16 +98,16 @@ const OurCompany = () => {
       ref={containerRef}
       className="relative z-10 py-4  md:px-8 flex flex-col items-center overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.9) 0%, rgba(126, 58, 242, 0.8) 50%, rgba(168, 85, 247, 0.7) 100%)',
-        boxShadow: '0 25px 50px -12px rgba(139, 92, 246, 0.25)'
-      }}
+    background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.9) 0%, rgba(126, 58, 242, 0.8) 50%, rgba(168, 85, 247, 0.7) 100%)',
+    boxShadow: '0 25px 50px -12px rgba(139, 92, 246, 0.25)'
+  }}
     >
       {/* Animated gradient overlay */}
       <div
         ref={gradientBgRef}
         className="absolute inset-0 z-0 opacity-20 pointer-events-none"
         style={{
-          background: 'linear-gradient(90deg, #8B5CF6, #EC4899, #8B5CF6)',
+          background: 'linear-gradient(90deg, #8b5cf6, #8b5cf6, #8b5cf6)',
           backgroundSize: '200% 100%'
         }}
       />
