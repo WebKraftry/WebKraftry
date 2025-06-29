@@ -57,7 +57,7 @@ const CTACard = ({
             <Phone className="w-4 h-4" />
             <span className="group-hover:underline">{phone}</span>
           </button>
-          <div className='flex flex-row justify-center gap-1'>
+          <div className='flex flex-row justify-center text-justify gap-1'>
             <div>
                 <Pen className=" w-4 h-4 items-center text-black"/>
             </div>

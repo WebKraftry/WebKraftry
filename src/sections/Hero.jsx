@@ -152,23 +152,7 @@ const Hero = () => {
           CREATE THE FUTURE
         </h1>
         <Test/>
-        {/* <p className="text-xl md:text-2xl text-gray-50 mb-8 max-w-2xl mx-auto
-            drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
-          We design immersive experiences that blend technology and creativity
-        </p> */}
-        
-        {/* <div className="flex justify-center gap-4">
-          <button className="px-8 py-3 rounded-full bg-white text-gray-900 font-bold 
-                           hover:scale-105 transition-transform shadow-lg hover:shadow-xl
-                           border-2 border-white">
-            Get Started
-          </button>
-          <button className="px-8 py-3 rounded-full bg-white/10 text-white font-bold 
-                           hover:bg-white hover:text-gray-900 transition-all 
-                           border-2 border-white shadow-lg hover:shadow-xl">
-            Learn More
-          </button>
-        </div> */}
+
       </div>
       {/* Scrolling Indicator */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">

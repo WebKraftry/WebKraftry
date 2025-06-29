@@ -6,7 +6,6 @@ import kunalimg from '../../assets/Kunal.jpg'
 import CTA from '../Common/CTA';
 import CTACard from '../Common/CTACard';
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 const LeadershipTeam = () => {
@@ -76,18 +75,17 @@ const LeadershipTeam = () => {
   const teamMembers = [
     {
       name: 'Kunal Koushik',
-      title: 'CEO & CO-Founder',
+      title: 'CEO & Founder',
       phone:"8882320645",
       email:"kunalkoushik44@gmail.com",
-      bio:'Passionate software developer skilled in building scalable web applications and crafting seamless user experiences. Proficient in modern technologies with a focus on clean, efficient code.'
-    },
+      bio:"A dedicated software developer specializing in the end-to-end development of scalable web applications. My focus is on writing clean, efficient code to deliver intuitive and high-performance user experiences." },
     {
       name: 'Mr. Prince Tyagi',
       title: 'Co-Founder & Chief Technology Officer (CTO)',
       phone:'8936950459',
       email:'princetyagi1901@gmail.com',
       bio:'Passionate software developer skilled in building scalable web applications and crafting seamless user experiences. Proficient in modern technologies with a focus on clean, efficient code.'
-   
+    
     },
     {
       name: 'The RealCoder',
@@ -95,15 +93,9 @@ const LeadershipTeam = () => {
       phone:'9899794119',
       email:'realcoder24@gmail.com',
       bio:'Passionate software developer skilled in building scalable web applications and crafting seamless user experiences. Proficient in modern technologies with a focus on clean, efficient code.'
-   
+    
       
     },
-    // {
-    //   name: 'Mr. Robert Green',
-    //   title: 'Lead UI/UX Designer',
-    //   bio: 'Robert crafts intuitive and engaging user experiences. His focus on user-centric design ensures every responsive website design is not only beautiful but also highly functional and easy to navigate.',
-    //   image: 'https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?fit=crop&w=300&h=300',
-    // },
   ];
 
   return (
@@ -119,26 +111,30 @@ const LeadershipTeam = () => {
             At WebKraftry, our success is driven by a passionate team of experts dedicated to digital excellence and client innovation. Get to know the leaders guiding our mission.
           </p>
         </section>
-
+      
         {/* Team Members Grid */}
+
         {/* <section ref={teamGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16"> */}
         <section ref={teamGridRef} className="max-w-full noto-serif grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 mb-16">
+
           {teamMembers.map((member, index) => (
-             <div className="flex flex-wrap justify-center">
-          <CTACard
-            name={member.name}
-            role={member.title}
-            email={member.email}
-            phone={member.phone}
-            bio={member.bio}
-            logoText="WEB KRAFTERY"
-          />
-          </div>
+            <div key={index} className="flex justify-center">
+              <CTACard
+                name={member.name}
+                role={member.title}
+                email={member.email}
+                phone={member.phone}
+                bio={member.bio}
+                logoText="WEB KRAFTERY"
+              />
+            </div>
           ))}
         </section>
-
+        
         {/* Call to Action Section */}
-        <CTA/>
+        <div ref={ctaRef}>
+          <CTA />
+        </div>
       </div>
     </div>
   );
